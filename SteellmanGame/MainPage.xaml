@@ -48,7 +48,7 @@
             </Canvas.Background>
             <StackPanel x:Name="human" Orientation="Vertical">
                 <Ellipse Fill="#FFF4F4F5" Height="10" Width="10"/>
-                <Rectangle Fill="#FFF4F4F5" Height="25" Width="10"/>
+                <Rectangle x:Name="target" Fill="#FFF4F4F5" Height="25" Width="10"/>
             </StackPanel>
             <TextBlock x:Name="gameOverText" Canvas.Left="730" TextWrapping="Wrap" Text="Game Over" Canvas.Top="190" FontFamily="Arial Black" FontSize="100" FontWeight="Bold" FontStyle="Italic" HorizontalAlignment="Center"  VerticalAlignment="Center"/> 
             <Rectangle Height="50" Canvas.Left="455" Canvas.Top="449" Width="50" RenderTransformOrigin="0.5,0.5">
@@ -63,7 +63,7 @@
                 </Rectangle.Fill>
             </Rectangle>
         </Canvas>
-        <ProgressBar Grid.Column="1" Grid.Row="0" Width="500" Height="10"/>
+        <ProgressBar x:Name="progressBar" Grid.Column="1" Grid.Row="0" Width="500" Height="10"/>
 
     </Grid>
 </Page>

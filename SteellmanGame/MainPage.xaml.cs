@@ -24,14 +24,62 @@ namespace SteellmanGame
     public sealed partial class MainPage : Page
     {
         Random random = new Random();
+        DispatcherTimer enemyTimer = new DispatcherTimer();
+        DispatcherTimer targetTimer = new DispatcherTimer();
+        bool humanCaptured = false;
         public MainPage()
         {
             this.InitializeComponent();
+
+            enemyTimer.Tick += EnemyTimer_Tick;
+            enemyTimer.Interval = TimeSpan.FromSeconds(2);
+            targetTimer.Tick += TargetTimer_Tick;
+            targetTimer.Interval = TimeSpan.FromSeconds(2);
+
+        }
+
+        private void TargetTimer_Tick(object sender, object e)
+        {
+            progressBar.Value += 1;
+            if (progressBar.Value >= progressBar.Maximum)
+                EndTheGame();
+        }
+
+        private void EndTheGame()
+        {
+            if (!playArena.Children.Contains(gameOverText))
+            {
+                enemyTimer.Stop();
+                targetTimer.Stop();
+                humanCaptured = false;
+                startButton.Visibility = Visibility.Visible;
+                playArena.Children.Add(gameOverText); 
+            }
+        }
+
+        private void EnemyTimer_Tick(object sender, object e)
+        {
+            AddEnemy();
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            AddEnemy();
+            StartGame();
+        }
+
+        private void StartGame()
+        {
+            human.IsHitTestVisible = true;
+            humanCaptured = false;
+            progressBar.Value = 0;
+            startButton.Visibility = Visibility.Collapsed;
+            playArena.Children.Clear();
+            //playArena.Children.Add(target);
+            playArena.Children.Add(human);
+            enemyTimer.Start();
+            targetTimer.Start();
+
+
         }
 
         private void AddEnemy()
