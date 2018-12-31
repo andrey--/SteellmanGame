@@ -15,7 +15,7 @@
                     <Ellipse.Fill>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                             <GradientStop Color="Black" Offset="0"/>
-                            <GradientStop Color="White" Offset="1"/>
+                            <GradientStop Color="#FFEC0F0F" Offset="1"/>
                         </LinearGradientBrush>
                     </Ellipse.Fill>
                 </Ellipse>
@@ -34,7 +34,7 @@
             <RowDefinition/>
             <RowDefinition Height="160"/>
         </Grid.RowDefinitions>
-        <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="startButton" Content="Start!" HorizontalAlignment="Center" VerticalAlignment="Center" Click="StartButton_Click"/>
         <StackPanel Grid.Column="2" Orientation="Vertical" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center">
             <TextBlock TextWrapping="Wrap" Text="Avoid These" Style="{StaticResource SubheaderTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <ContentControl Content="ContentControl" HorizontalAlignment="Center" VerticalAlignment="Center" Template="{StaticResource EnemyTemplate}"/>
