@@ -46,7 +46,7 @@
                     <GradientStop Color="White" Offset="1"/>
                 </LinearGradientBrush>
             </Canvas.Background>
-            <StackPanel x:Name="human" Orientation="Vertical">
+            <StackPanel x:Name="human" Orientation="Vertical" PointerPressed="Human_PointerPressed">
                 <Ellipse Fill="#FFF4F4F5" Height="10" Width="10"/>
                 <Rectangle x:Name="target" Fill="#FFF4F4F5" Height="25" Width="10"/>
             </StackPanel>

@@ -32,9 +32,9 @@ namespace SteellmanGame
             this.InitializeComponent();
 
             enemyTimer.Tick += EnemyTimer_Tick;
-            enemyTimer.Interval = TimeSpan.FromSeconds(2);
+            enemyTimer.Interval = TimeSpan.FromSeconds(10);
             targetTimer.Tick += TargetTimer_Tick;
-            targetTimer.Interval = TimeSpan.FromSeconds(2);
+            targetTimer.Interval = TimeSpan.FromSeconds(1);
 
         }
 
@@ -107,6 +107,15 @@ namespace SteellmanGame
             Storyboard.SetTargetProperty(animation, propertyToAnimate);
             storyboard.Children.Add(animation);
             storyboard.Begin();
+        }
+
+        private void Human_PointerPressed(object sender, PointerRoutedEventArgs e)
+        {
+            if (enemyTimer.IsEnabled)
+            {
+                humanCaptured = true;
+                human.IsHitTestVisible = false;
+            }
         }
     }
 }
