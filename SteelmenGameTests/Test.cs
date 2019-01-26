@@ -33,9 +33,16 @@ namespace SteelmenGameTests
         }
 
         [Test]
+        [Category("New")]
         public void FirstTest()
         {
             Assert.AreEqual(1, 1);
+        }
+        [Test]
+        [Category("Old")]
+        public void SecondTest()
+        {
+            Assert.That(true, ()=>"strign");
         }
 
     }
